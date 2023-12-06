@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Agregar Nuevo Producto</h1>
+  <form id="addProductForm">
+    <label for="title">Título:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="price">Precio:</label>
+    <input type="number" id="price" name="price" step="0.01" required>
+
+    <label for="stock">Stock:</label>
+    <input type="number" id="stock" name="stock" required>
+
+    <label for="description">Descripción:</label>
+    <input type="text" id="description" name="description">
+
+    <button type="submit">Agregar Producto</button>
+  </form>
+
+   <div id="list-products">
+        <h2>Lista de Productos</h2>
+        <ul id="products-list">
+            <!-- Aquí va la lista de productos -->
+            {{#each products}}
+                <li>Nombre: {{this.title}}, Precio: {{this.price}}, Descripción: {{this.description}}</li>
+            {{/each}}
+        </ul>
+    </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+</html>
